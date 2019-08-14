@@ -1,0 +1,35 @@
+{
+  "name": "simpod-sankey-panel",
+  "description": "Grafana Sankey Diagram Panel",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "grafana-toolkit plugin:build",
+    "test": "grafana-toolkit plugin:test",
+    "dev": "grafana-toolkit plugin:dev",
+    "watch": "grafana-toolkit plugin:dev --watch",
+    "prettier:check": "prettier --list-different \"**/*.{ts,tsx,scss}\"",
+    "prettier:write": "prettier --list-different \"**/*.{ts,tsx,scss}\" --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simPod/grafana-sankey-panel.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simPod/grafana-sankey-panel/issues"
+  },
+  "engineStrict": true,
+  "devDependencies": {
+    "@grafana/data": "latest",
+    "@grafana/toolkit": "next",
+    "@types/d3": "^5.7.2",
+    "@types/d3-sankey": "^0.11.0",
+    "@types/lodash": "^4.14.137"
+  },
+  "dependencies": {
+    "d3": "^5.11.0",
+    "d3-sankey": "^0.12.1",
+    "lodash": "^4.17.15"
+  },
+  "homepage": "https://github.com/simPod/grafana-sankey-panel"
+}
