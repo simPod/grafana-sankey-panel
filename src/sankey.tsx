@@ -32,12 +32,11 @@ interface DataNode {
 
 type SankeyPerTime = Map<timestamp, Graph>;
 
-export const Sankey: React.FC<PanelProps> = props => {
+export const Sankey: React.FC<PanelProps> = ({ data, height, width }) => {
   const [sankeysPerTime, setSankeysPerTime] = React.useState<SankeyPerTime | null>(null);
   const [hoveredTime, setHoveredTime] = React.useState<number | null>(null);
-  const { data: grafanaData, height, width } = props;
 
-  if (grafanaData.state === 'Error') {
+  if (data.state === 'Error') {
     return <div>Error</div>;
   }
 
@@ -66,8 +65,9 @@ export const Sankey: React.FC<PanelProps> = props => {
     []
   );
 
+  // const grafanaData = data as unknown as TableData;
   React.useEffect(() => {
-    if (grafanaData.series.length !== 1) {
+    if (data.series.length !== 1) {
       throw new Error('Expected one series');
     }
 
@@ -77,18 +77,27 @@ export const Sankey: React.FC<PanelProps> = props => {
       .nodeAlign(d3.sankeyRight)
       .nodeWidth(5)
       .nodePadding(20)
-      .extent([[0, 10], [width, height - 10]]);
+      .extent([
+        [0, 10],
+        [width, height - 10],
+      ]);
 
-    const data: DataResponse = (grafanaData.series[0].rows as any) as DataResponse;
+    const sankeyData = (data.series[0].fields[0].values.get(0) as unknown) as DataResponse;
 
     const sankeysPerTime = new Map();
 
-    Object.entries(data.links).forEach(([timestamp, links]) => {
-      sankeysPerTime.set(parseInt(timestamp, 10), createSankey({ nodes: getNodesForLinks(data.nodes, links), links: cloneDeep(links as Link[]) }));
+    Object.entries(sankeyData.links).forEach(([timestamp, links]) => {
+      sankeysPerTime.set(
+        parseInt(timestamp, 10),
+        createSankey({
+          nodes: getNodesForLinks(sankeyData.nodes, links),
+          links: cloneDeep(links as Link[]),
+        })
+      );
     });
 
     setSankeysPerTime(sankeysPerTime);
-  }, [grafanaData.series, width, height]);
+  }, [data.series, width, height]);
 
   if (sankeysPerTime === null) {
     return <span>Initializing data</span>;

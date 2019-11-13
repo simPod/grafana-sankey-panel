@@ -18,10 +18,9 @@
   "bugs": {
     "url": "https://github.com/simPod/grafana-sankey-panel/issues"
   },
-  "engineStrict": true,
   "devDependencies": {
-    "@grafana/data": "latest",
-    "@grafana/toolkit": "next",
+    "@grafana/data": "^6.4.4",
+    "@grafana/toolkit": "^6.4.0-beta.2",
     "@types/d3": "^5.7.2",
     "@types/d3-sankey": "^0.11.0",
     "@types/lodash": "^4.14.137"
