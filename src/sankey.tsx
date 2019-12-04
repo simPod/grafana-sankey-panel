@@ -75,6 +75,7 @@ export const Sankey: React.FC<PanelProps> = ({ data, height, width }) => {
       .sankey<NodeExtraProperties, LinkExtraProperties>()
       .nodeId(node => node.id)
       .nodeAlign(d3.sankeyRight)
+      .nodeSort((a, b) => b.value! - a.value!)
       .nodeWidth(5)
       .nodePadding(20)
       .extent([
