@@ -52,7 +52,7 @@ export const Sankey: React.FC<PanelProps> = ({ data, height, width }) => {
   React.useEffect(
     () =>
       window.addEventListener(
-        'hovered-time-changed',
+        'click-time-changed',
         (onHoveredTimeChanged as any) as EventListener // https://github.com/Microsoft/TypeScript/issues/28357
       ),
     []
@@ -60,7 +60,7 @@ export const Sankey: React.FC<PanelProps> = ({ data, height, width }) => {
 
   React.useEffect(
     () => () => {
-      window.removeEventListener('hovered-time-changed', (onHoveredTimeChanged as any) as EventListener);
+      window.removeEventListener('click-time-changed', (onHoveredTimeChanged as any) as EventListener);
     },
     []
   );
