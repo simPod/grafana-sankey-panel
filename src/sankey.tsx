@@ -1,4 +1,4 @@
-import { PanelProps } from '@grafana/ui';
+import { PanelProps } from '@grafana/data';
 import * as d3All from 'd3';
 import * as d3Sankey from 'd3-sankey';
 import { cloneDeep, debounce, isUndefined } from 'lodash';
