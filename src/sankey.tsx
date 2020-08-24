@@ -35,37 +35,33 @@ type SankeyPerTime = Map<timestamp, Graph>;
 export const Sankey: React.FC<PanelProps> = ({ data, height, width }) => {
   const [sankeysPerTime, setSankeysPerTime] = React.useState<SankeyPerTime | null>(null);
   const [hoveredTime, setHoveredTime] = React.useState<number | null>(null);
-
-  if (data.state === 'Error') {
-    return <div>Error</div>;
-  }
-
-  const onHoveredTimeChanged = debounce((e: CustomEvent) => {
-    const panelsHoveredTime = e.detail.time;
-    if (isUndefined(hoveredTime)) {
-      return;
-    }
-
-    setHoveredTime(panelsHoveredTime);
-  }, 100);
-
-  React.useEffect(
+  const onHoveredTimeChanged = React.useMemo(
     () =>
-      window.addEventListener(
-        'click-time-changed',
-        (onHoveredTimeChanged as any) as EventListener // https://github.com/Microsoft/TypeScript/issues/28357
-      ),
-    []
+      debounce((e: CustomEvent) => {
+        const panelsHoveredTime = e.detail.time;
+        if (isUndefined(hoveredTime)) {
+          return;
+        }
+
+        setHoveredTime(panelsHoveredTime);
+      }, 100),
+    [hoveredTime, setHoveredTime]
   );
+
+  React.useEffect(() => {
+    window.addEventListener(
+      'click-time-changed',
+      (onHoveredTimeChanged as any) as EventListener // https://github.com/Microsoft/TypeScript/issues/28357
+    );
+  }, [onHoveredTimeChanged]);
 
   React.useEffect(
     () => () => {
       window.removeEventListener('click-time-changed', (onHoveredTimeChanged as any) as EventListener);
     },
-    []
+    [onHoveredTimeChanged]
   );
 
-  // const grafanaData = data as unknown as TableData;
   React.useEffect(() => {
     if (data.series.length !== 1) {
       throw new Error('Expected one series');
@@ -99,6 +95,10 @@ export const Sankey: React.FC<PanelProps> = ({ data, height, width }) => {
 
     setSankeysPerTime(sankeysPerTime);
   }, [data.series, width, height]);
+
+  if (data.state === 'Error') {
+    return <div>Error</div>;
+  }
 
   if (sankeysPerTime === null) {
     return <span>Initializing data</span>;

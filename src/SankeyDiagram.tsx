@@ -127,7 +127,12 @@ const LinkElement: React.FC<LinkProps> = ({ data, width, length, colors }) => {
   return (
     <>
       <defs>
-        <linearGradient id={`gradient-${data.index}`} gradientUnits="userSpaceOnUse" x1={data.source.x1} x2={data.target.x0}>
+        <linearGradient
+          id={`gradient-${data.index}`}
+          gradientUnits="userSpaceOnUse"
+          x1={data.source.x1}
+          x2={data.target.x0}
+        >
           <stop offset="0" stopColor={colors(data.source.index! / length)} />
           <stop offset="100%" stopColor={colors(data.target.index! / length)} />
         </linearGradient>
