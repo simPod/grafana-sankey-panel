@@ -19,15 +19,15 @@
     "url": "https://github.com/simPod/grafana-sankey-panel/issues"
   },
   "devDependencies": {
-    "@grafana/data": "~7.1.0",
-    "@grafana/toolkit": "~7.1.0",
-    "@grafana/ui": "~7.1.0",
-    "@types/d3": "^5.16.3",
+    "@grafana/data": "~7.3.7",
+    "@grafana/toolkit": "~7.3.7",
+    "@grafana/ui": "~7.3.7",
+    "@types/d3": "^6.2.0",
     "@types/d3-sankey": "^0.11.1",
-    "@types/lodash": "^4.14.164"
+    "@types/lodash": "^4.14.168"
   },
   "dependencies": {
-    "d3": "^6.2.0",
+    "d3": "^6.5.0",
     "d3-sankey": "^0.12.1",
     "d3-scale-chromatic": "^2.0.0",
     "lodash": "^4.17.20"
