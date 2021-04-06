@@ -69,7 +69,7 @@ export const Sankey: React.FC<PanelProps> = ({ data, height, width }) => {
 
     const createSankey = d3
       .sankey<NodeExtraProperties, LinkExtraProperties>()
-      .nodeId(node => node.id)
+      .nodeId((node) => node.id)
       .nodeAlign(d3.sankeyRight)
       .nodeSort((a, b) => b.value! - a.value!)
       .nodeWidth(5)
@@ -118,6 +118,7 @@ export const Sankey: React.FC<PanelProps> = ({ data, height, width }) => {
 };
 
 const getNodesForLinks = (nodes: DataNodes, links: DataLink[]) => {
+  console.log(links);
   const linkIds = new Set();
   for (const link of Object.values(links)) {
     linkIds.add(link.source);
@@ -127,7 +128,7 @@ const getNodesForLinks = (nodes: DataNodes, links: DataLink[]) => {
   return cloneDeep(
     Object.values(
       Object.keys(nodes)
-        .filter(key => linkIds.has(key))
+        .filter((key) => linkIds.has(key))
         .reduce<SankeyDataNodes>((acc, key) => {
           acc[key] = nodes[key];
 
