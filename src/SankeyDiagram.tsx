@@ -1,7 +1,6 @@
 import * as d3All from 'd3';
 import * as d3Sankey from 'd3-sankey';
 import * as d3ScaleChromatic from 'd3-scale-chromatic';
-import { SankeyGraph, SankeyLink, SankeyNode } from 'd3-sankey';
 
 import React from 'react';
 import { decimalSIPrefix } from './symbolFormatters';
@@ -59,10 +58,10 @@ export interface LinkExtraProperties {
   target: Node;
 }
 
-export type Link = SankeyLink<NodeExtraProperties, LinkExtraProperties>;
-type Node = SankeyNode<NodeExtraProperties, LinkExtraProperties>;
+export type Link = d3Sankey.SankeyLink<NodeExtraProperties, LinkExtraProperties>;
+type Node = d3Sankey.SankeyNode<NodeExtraProperties, LinkExtraProperties>;
 
-export type Graph = SankeyGraph<NodeExtraProperties, LinkExtraProperties>;
+export type Graph = d3Sankey.SankeyGraph<NodeExtraProperties, LinkExtraProperties>;
 
 export const SankeyDiagram: React.FC<SankeyDiagramProps> = ({ sankey, dimensions }) => {
   const colors = d3ScaleChromatic.interpolateOranges;
@@ -76,7 +75,7 @@ export const SankeyDiagram: React.FC<SankeyDiagramProps> = ({ sankey, dimensions
         ))}
       </g>
       <g>
-        {nodes.map(node => (
+        {nodes.map((node) => (
           <Rect
             key={node.index}
             dimensions={dimensions}
