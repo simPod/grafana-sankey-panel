@@ -51,13 +51,13 @@ export const Sankey: React.FC<PanelProps> = ({ data, height, width }) => {
   React.useEffect(() => {
     window.addEventListener(
       'click-time-changed',
-      (onHoveredTimeChanged as any) as EventListener // https://github.com/Microsoft/TypeScript/issues/28357
+      onHoveredTimeChanged as any as EventListener // https://github.com/Microsoft/TypeScript/issues/28357
     );
   }, [onHoveredTimeChanged]);
 
   React.useEffect(
     () => () => {
-      window.removeEventListener('click-time-changed', (onHoveredTimeChanged as any) as EventListener);
+      window.removeEventListener('click-time-changed', onHoveredTimeChanged as any as EventListener);
     },
     [onHoveredTimeChanged]
   );
@@ -79,7 +79,7 @@ export const Sankey: React.FC<PanelProps> = ({ data, height, width }) => {
         [width, height - 10],
       ]);
 
-    const sankeyData = (data.series[0].fields[0].values.get(0) as unknown) as DataResponse;
+    const sankeyData = data.series[0].fields[0].values.get(0) as unknown as DataResponse;
 
     const sankeysPerTime = new Map();
 
