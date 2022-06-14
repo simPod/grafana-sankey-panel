@@ -21,7 +21,7 @@
   "devDependencies": {
     "@grafana/data": "~8.5.0",
     "@grafana/toolkit": "~8.5.0",
-    "@grafana/ui": "~8.5.0",
+    "@grafana/ui": "~9.0.0",
     "@types/d3": "^7.0.0",
     "@types/d3-sankey": "^0.11.1",
     "@types/lodash": "^4.14.168"
