@@ -32,5 +32,11 @@
     "d3-scale-chromatic": "^3.0.0",
     "lodash": "^4.17.20"
   },
+  "engines": {
+    "node": "^18"
+  },
+  "resolutions": {
+    "eslint-plugin-jsdoc": "39.6.4"
+  },
   "homepage": "https://github.com/simPod/grafana-sankey-panel"
 }
