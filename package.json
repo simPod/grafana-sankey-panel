@@ -36,7 +36,7 @@
     "node": "^18"
   },
   "resolutions": {
-    "eslint-plugin-jsdoc": "39.7.4"
+    "eslint-plugin-jsdoc": "39.7.5"
   },
   "homepage": "https://github.com/simPod/grafana-sankey-panel"
 }
