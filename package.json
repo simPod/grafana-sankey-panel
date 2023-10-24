@@ -33,7 +33,7 @@
     "lodash": "^4.17.20"
   },
   "engines": {
-    "node": "^16 || ^17 || ^18 || ^19"
+    "node": "^20.0.0"
   },
   "resolutions": {
     "eslint-plugin-jsdoc": "46.8.2"
