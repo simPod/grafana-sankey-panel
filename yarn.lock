@@ -1512,16 +1512,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/css@npm:11.13.0":
-  version: 11.13.0
-  resolution: "@emotion/css@npm:11.13.0"
+"@emotion/css@npm:11.13.4":
+  version: 11.13.4
+  resolution: "@emotion/css@npm:11.13.4"
   dependencies:
     "@emotion/babel-plugin": "npm:^11.12.0"
     "@emotion/cache": "npm:^11.13.0"
     "@emotion/serialize": "npm:^1.3.0"
     "@emotion/sheet": "npm:^1.4.0"
     "@emotion/utils": "npm:^1.4.0"
-  checksum: 10c0/45ab5d3c9c3f0a6febf965c801c5e1112889bfb3ead532372c56076e778cd20552d2e5ad5782eeb4577c6dbbd0eaa400e4dbf503026e1258a1b143e8824c05c9
+  checksum: 10c0/57971732b983f43e642e30496257168d5ecdd05be4d4a3cd7ff778f9e402a71fd8679272cb797abd61eab65724dad26af04c418a41219a062b8faa9cc01d3848
   languageName: node
   linkType: hard
 
@@ -12660,7 +12660,7 @@ __metadata:
   resolution: "simpod-sankey-panel@workspace:."
   dependencies:
     "@babel/core": "npm:^7.21.4"
-    "@emotion/css": "npm:11.13.0"
+    "@emotion/css": "npm:11.13.4"
     "@grafana/data": "npm:~11.2.0"
     "@grafana/e2e": "npm:11.0.5"
     "@grafana/e2e-selectors": "npm:11.2.1"
