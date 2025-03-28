@@ -86,5 +86,5 @@
     "eslint-plugin-jsdoc": "50.6.9"
   },
   "homepage": "https://github.com/simPod/grafana-sankey-panel",
-  "packageManager": "yarn@4.7.0"
+  "packageManager": "yarn@4.8.0"
 }
