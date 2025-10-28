@@ -80,7 +80,7 @@
     "tslib": "2.8.1"
   },
   "engines": {
-    "node": "^16 || ^17 || ^18 || ^19 || ^20"
+    "node": "^22.0.0"
   },
   "resolutions": {
     "eslint-plugin-jsdoc": "50.8.0"
